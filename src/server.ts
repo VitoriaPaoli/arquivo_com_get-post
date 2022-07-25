@@ -1,8 +1,10 @@
 import express from "express"
 import mainRouter from './routes/index'
-
 import mustache from 'mustache-express'
 import path from "path"
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const server = express()
 
@@ -16,7 +18,9 @@ server.use(express.urlencoded({extended:true}))
 
 server.use(mainRouter)
 
-server.listen(3000)
+
+// arrumar o servidor e colocar PORT
+server.listen(process.env.PORT)
 
 
 
